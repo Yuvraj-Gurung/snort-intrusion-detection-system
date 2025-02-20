@@ -46,6 +46,8 @@ Intrusion Detection Systems (IDS) are essential for monitoring and detecting pot
 
 **Step 1: 💻 Set the network variables**
 
+<img src="images/image20.png">
+
 ipvar HOME_NET IP_ADDRESS
 
 ipvar EXTERNAL_NET !$HOME_NET
