@@ -28,12 +28,19 @@ Intrusion Detection Systems (IDS) are essential for monitoring and detecting pot
 
 1. Download Snort IDS from the [official website](https://www.snort.org/downloads)
 
+<img src="images/image1.png"> <img src="images/image2.png">
+
 2. Install Microsoft Visual C++ 2015-2022 Redistributable (x64).
+
+<img src="images/image3.png"> <img src="images/image4.png">
 
 3. Download and install the Npcap.
 
+<img src="images/image5.png"> <img src="images/image6.png"> <img src="images/image7.png">  <img src="images/image8.png">
+
 4. Install Snort.
 
+<img src="images/image9.png"> <img src="images/image10.png"> <img src="images/image11.png"> <img src="images/image12.png"> <img src="images/image13.png"> <img src="images/image15.png">
 
 ## 6. Configuring Snort
 
@@ -43,6 +50,8 @@ ipvar HOME_NET IP_ADDRESS
 
 ipvar EXTERNAL_NET !$HOME_NET
 
+<img src="images/image21.png">
+ 
 
 **Step 2: 💻 Specify the Path to the rules files**
 
@@ -54,10 +63,14 @@ var WHITE_LIST_PATH c:\Snort\rules
 
 var BLACK_LIST_PATH c:\Snort\rules
 
+<img src="images/image22.png">
+
 
 **Step 3: 💻 Configure default log directory for snort**
 
 config logdir: c:\Snort\log
+
+<img src="images/image23.png">
 
 
 **Step 4: 💻 Configure dynamic loaded libraries**
@@ -66,6 +79,8 @@ dynamicpreprocessor directory c:\Snort\lib\snort_dynamicpreprocessor
 
 dynamicengine c:\Snort\lib\snort_dynamicengine\sf_engine.dll
 
+<img src="images/image24.png">
+
 
 **Step 5: 💻 Configure the Reputation preprocessor**
 
@@ -73,15 +88,21 @@ whitelist $WHITE_LIST_PATH\whitelist.rules
 
 blacklist $BLACK_LIST_PATH\blacklist.rules
 
+<img src="images/image26.png">
+
 
 **Step 6: 💻 Customize the rule set as follows**
 
 Example:
 
+<img src="images/image27.png"> <img src="images/image28.png"> <img src="images/image29.png"> <img src="images/image30.png">
+
 
 ## 7. Validating the Snort Configuration
 
 1. Open -> Command Prompt -> Run as administrator
+
+<img src="images/image14.png">
 
 2. Navigate to the Snort Installation directory.
 
@@ -91,10 +112,13 @@ cd \Snort\bin
 
 snort.exe -i 4 -c C:\Snort\etc\snort.conf -T
 
+<img src="images/image31.png"> <img src="images/image32.png">
 
 ## 8. Writing Snort Rules
 
 1. Navigate to the Snort Installation directory - > Select rules folder - > Edit the (local.rules) files in Notepad++.
+
+<img src="images/image33.png">
 
 LOCAL RULES
 
@@ -104,6 +128,7 @@ alert tcp any any -> $HOME_NET 22 (msg:"SSH Authentication Attempt"; sid:1000002
 
 alert tcp any any -> IP_Address Port (msg:"FTP Connection Attempt"; sid:1000003; rev:1;)
 
+<img src="images/image34.png">
 
 ## 9. Running Snort in IDS Mode
 
@@ -113,6 +138,7 @@ alert tcp any any -> IP_Address Port (msg:"FTP Connection Attempt"; sid:1000003;
 
 snort.exe -i 4 -c C:\Snort\etc\snort.conf -A console
 
+<img src="images/image35.png"> <img src="images/image36.png"> <img src="images/image37.png"> <img src="images/image38.png"> <img src="images/image39.png"> <img src="images/image40.png">
 
 ## 10. Analyzing Alerts
 
@@ -123,6 +149,7 @@ Command:
 
 snort.exe -i 4 -c C:\Snort\etc\snort.conf -A console > C:\Snort\log\test_logs_001.txt
 
+<img src="images/image41.png"> <img src="images/image42.png"> <img src="images/image43.png">
 
 ## 11. Conclusion
 
